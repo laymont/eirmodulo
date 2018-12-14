@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Eir;
-use App\Inventario;
+use App\Consignatario;
 use Illuminate\Http\Request;
 
-class EirController extends Controller
+class ConsignatarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class EirController extends Controller
      */
     public function index()
     {
-      $eirs = Eir::all();
-      return view('eirs.index', compact('eirs'));
+        //
     }
 
     /**
@@ -43,24 +41,21 @@ class EirController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Eir  $eir
+     * @param  \App\Consignatario  $consignatario
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Consignatario $consignatario)
     {
-      $inventario = Inventario::with('lineas:id,nombre','buques:id,nombre','viajes:id,viaje,eta','tipos:id,tipo','consignatarios:id,nombre')
-      ->find($id);
-      return view('eirs.show', compact('inventario'));
-      // return view('eirs.show', compact('eir'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Eir  $eir
+     * @param  \App\Consignatario  $consignatario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Eir $eir)
+    public function edit(Consignatario $consignatario)
     {
         //
     }
@@ -69,10 +64,10 @@ class EirController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Eir  $eir
+     * @param  \App\Consignatario  $consignatario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Eir $eir)
+    public function update(Request $request, Consignatario $consignatario)
     {
         //
     }
@@ -80,11 +75,11 @@ class EirController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Eir  $eir
+     * @param  \App\Consignatario  $consignatario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Eir $eir)
+    public function destroy(Consignatario $consignatario)
     {
         //
     }
-  }
+}

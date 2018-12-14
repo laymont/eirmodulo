@@ -71,4 +71,14 @@ class Inventario extends Model
     // belongsTo(RelatedModel, foreignKey = eirr_id, keyOnRelatedModel = id)
     return $this->belongsTo(Eir::class,'eir_r');
   }
+  /**
+   * Inventario belongs to Consignatarios.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
+  public function consignatarios()
+  {
+    // belongsTo(RelatedModel, foreignKey = consignatarios_id, keyOnRelatedModel = id)
+    return $this->belongsTo(Consignatario::class,'consignatario');
+  }
 }
