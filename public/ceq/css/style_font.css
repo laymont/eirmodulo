@@ -1,0 +1,139 @@
+@font-face {
+	font-family: 'icomoonCC';
+	src:url('fonts/icomoonCC.eot?-talrsp');
+	src:url('fonts/icomoonCC.eot?#iefix-talrsp') format('embedded-opentype'),
+url('fonts/icomoonCC.ttf?-talrsp') format('truetype'),
+url('fonts/icomoonCC.woff?-talrsp') format('woff'),
+url('fonts/icomoonCC.svg?-talrsp#icomoonCC') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoonCC';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-inicio:before {
+	content: "\e900";
+}
+.icon-editar:before {
+	content: "\e906";
+}
+.icon-imagen:before {
+	content: "\e90d";
+}
+.icon-carpeta:before {
+	content: "\e92f";
+}
+.icon-abrircarpeta:before {
+	content: "\e930";
+}
+.icon-mascarpeta:before {
+	content: "\e931";
+}
+.icon-menoscarpeta:before {
+	content: "\e932";
+}
+.icon-descargar:before {
+	content: "\e933";
+}
+.icon-descargarbox:before {
+	content: "\e95e";
+}
+.icon-subirbox:before {
+	content: "\e95f";
+}
+.icon-deshacer:before {
+	content: "\e967";
+}
+.icon-rehacer:before {
+	content: "\e968";
+}
+.icon-usuario:before {
+	content: "\e971";
+}
+.icon-usuarioadd:before {
+	content: "\e973";
+}
+.icon-usuariorem:before {
+	content: "\e974";
+}
+.icon-usariotrue:before {
+	content: "\e975";
+}
+.icon-llave:before {
+	content: "\e98d";
+}
+.icon-seguro:before {
+	content: "\e98f";
+}
+.icon-graficos:before {
+	content: "\e99c";
+}
+.icon-switch:before {
+	content: "\e9b6";
+}
+.icon-descarganuve:before {
+	content: "\e9c2";
+}
+.icon-subenube:before {
+	content: "\e9c3";
+}
+.icon-ojo:before {
+	content: "\e9ce";
+}
+.icon-feliz:before {
+	content: "\e9df";
+}
+.icon-asombro:before {
+	content: "\e9f1";
+}
+.icon-llora:before {
+	content: "\ea01";
+}
+.icon-alerta:before {
+	content: "\ea07";
+}
+.icon-cancelar:before {
+	content: "\ea0d";
+}
+.icon-false:before {
+	content: "\ea0f";
+}
+.icon-true:before {
+	content: "\ea10";
+}
+.icon-entrar:before {
+	content: "\ea13";
+}
+.icon-salir:before {
+	content: "\ea14";
+}
+.icon-chrome:before {
+	content: "\eae5";
+}
+.icon-firefox:before {
+	content: "\eae6";
+}
+.icon-IE:before {
+	content: "\eae7";
+}
+.icon-opera:before {
+	content: "\eae8";
+}
+.icon-safari:before {
+	content: "\eae9";
+}
+span a:link {
+	text-decoration: none !important;
+}

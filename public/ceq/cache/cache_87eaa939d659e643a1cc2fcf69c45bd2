@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ayaguna, Control de Equipos">
+  <meta name="author" content="Laymont Arratia">
+  <title>Ayaguna 2.0.1</title>
+  <!--Estilos-->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilos-2016.css">
+  <link rel="stylesheet" href="../bootstrap/table/bootstrap-table.css">
+  <link rel="stylesheet" href="../bootstrap/css/styleBootstrap.css">
+  <link rel="stylesheet" href="../bootstrap/table/bootstrap-table.min.css">
+  <!--Script-->
+  <script src="../bootstrap/js/jquery.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="../bootstrap/table/bootstrap-table.js"></script>
+  <script src="../bootstrap/table/locale/bootstrap-table-es-SP.js"></script>
+  <script src="../bootstrap/table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+  <script src="../bootstrap/table/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+  <script src="../bootstrap/table/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
+  <script src="../bootstrap/table/extensions/export/bootstrap-table-export.js"></script>
+  <script type="text/javascript" src="../bootstrap/table/tableExport.js"></script>
+  <script src="../bootstrap/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+  <script>
+    $(document).ready(function(){
+     $('[data-toggle="tooltip"]').tooltip();
+   });
+ </script>
+</head>
+<body>
+  <div id="contenedor" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+            <a class="navbar-brand" href="#"><span class="text-primary">Ayaguna</span></a> </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="../inicio.php">Regresar</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div><!--Menu-->
+                <div class="row bufferTop">
+      <h3>Devuelto al inventario</h3>            <div class="col-sm-4">
+       <form name="search" class="form-inline" action="/ayaguna22/equipos/asigdev.php" role="form" method="post" enctype="multipart/form-data">
+         <div class="form-group">
+           <label for="equipo" class="control-label">Equipo</label>
+           <input type="text" class="form-control" id="equipo" name="equipo">
+         </div>
+         <button class="btn btn-default" type="submit"> Buscar </button>
+       </form>
+     </div>
+        </div>
+   <div class="row">
+      </div>
+
+  </div>
+<script>
+  $("nav.navbar-fixed-top").autoHidingNavbar();
+
+</script>
+</body>

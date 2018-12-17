@@ -18,6 +18,11 @@ class LineaController extends Controller
       return view('lineas.index', compact('lineas'));
     }
 
+    public function getLineas($id)
+    {
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

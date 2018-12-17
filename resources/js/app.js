@@ -28,6 +28,24 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+require('./bootstrap');
+
+import moment from 'moment'
+window.moment = require('moment');
+
+/* Font Awesome 5*/
+import fontawesome from '@fortawesome/fontawesome'
+
+/* SweetAlert */
+window.swal = require('sweetalert2');
+
+const toast = swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
 const app = new Vue({
     el: '#app'
 });

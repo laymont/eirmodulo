@@ -16,5 +16,21 @@ Route::get('/', function () {
 });
 
 Route::resource('lineas', 'LineaController');
+
+/* Lineas */
+Route::get('/getBuques/{linea}', 'BuqueController@getBuques')->name('lineas.getBuques');
+
+/* Buques */
+
+/* Viajes */
+Route::get('/getViajes/{buque}', 'ViajeController@getViajes')->name('viajes.getViajes');
+
+/* Tipos */
+Route::get('/getTipos','TequipoController@getTipos')->name('tipos.getTipos');
+Route::get('/getIsoCodes/{tipo}', 'IsocodecontainerController@getIsoCodes')->name('tipos.getIsoCodes');
+
+/* EIR's */
+Route::get('eirs/out/{id}', 'EirController@out')->name('eirs.out');
 Route::resource('eirs', 'EirController');
+
 Route::resource('inventarios', 'InventarioController');

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ayaguna, Control de Equipos">
+<meta name="author" content="Laymont Arratia">
+<title>Ayaguna 2.0.1</title>
+<!--Estilos-->
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/table/bootstrap-table.css">
+<link rel="stylesheet" href="../bootstrap/css/styleBootstrap.css">
+<link rel="stylesheet" href="../bootstrap/table/bootstrap-table.min.css">
+<!--Script-->
+<script src="../bootstrap/js/jquery.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/table/bootstrap-table.js"></script>
+<script src="../bootstrap/table/locale/bootstrap-table-es-SP.js"></script>
+<script src="../bootstrap/table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+<script src="../bootstrap/table/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="../bootstrap/table/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
+<script src="../bootstrap/table/extensions/export/bootstrap-table-export.js"></script>
+<script type="text/javascript" src="../bootstrap/table/tableExport.js"></script>
+<script src="../bootstrap/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+</head>
+
+<body>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-12">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="#"><span class="text-primary">Ayaguna</span></a> </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="../inicio.php">Regresar</a></li>
+                    <p class="navbar-text navbar-right"> <small class="text-info">Intercontainers La Guaira C.A.</small></p>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+      <form class="form-inline" action="/ayaguna22/reportes/inventario_lineas.php" method="post" name="lineas" id="lineas" onKeyPress="Noenter();" role="form">
+        <fieldset>
+          <legend>Indique Linea y Estatus</legend>
+          <div class="form-group">
+            <select class="form-control" name="linea" required id="linea">
+              <option value="">Seleccion/Linea</option>
+                            <br />
+<b>Notice</b>:  Undefined index: linea in <b>/var/www/html/ayaguna22/reportes/inventario_lineas.php</b> on line <b>111</b><br />
+              <option value="KING OCEAN">KING OCEAN</option>
+                                        </select>
+          </div>
+          <div class="checkbox">
+            <label class="control-label" for="estatus[]">Empty</label>
+            <input name="estatus[]" type="checkbox" id="estatus[]" form="lineas" value="0"
+            checked>
+          </div>
+          <div class="checkbox">
+            <label class="control-label" for="estatus[]">Full</label>
+            <input name="estatus[]" type="checkbox" id="estatus[]" form="lineas" value="1"
+            checked>
+          </div>
+          <button type="submit" class="btn btn-primary" onClick="ValidarBox()" value="Enviar">&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+      </div>
+  </div>
+</div>
+<script>
+$("nav.navbar-fixed-top").autoHidingNavbar();
+
+var $table = $('#table');
+$(function () {
+	$table.on('click-row.bs.table', function (e, row, $element) {
+		$('.success').removeClass('success');
+		$($element).addClass('success');
+	});
+});
+</script>
+<small></small>
+</body>

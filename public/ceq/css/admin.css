@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	margin: 0px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	border-collapse: collapse;
+}
+
+h1 {
+	font-size: xx-large;
+	color: #1D417F;
+	text-indent: 5px;
+}
+
+h2 {
+	font-size: x-large;
+	color: #1D417F;
+	text-indent: 10px;
+}
+
+.lista {
+	margin-right: auto;
+	margin-left: auto;
+	font-size: small;
+	margin-bottom: 10px;
+	border-width: 1px;
+	border-collapse: collapse;
+}
+
+.lista caption {
+	text-align: left;
+	text-indent: 10px;
+	font-weight: bold;
+}
+
+.lista tr th {
+	background-color: #B0C4DE;
+	color: #21383F;
+}
+
+.lista tr td {
+	font-size: x-small;
+}
+
+.lista td[scope="num"] {
+	text-align: center;
+}
+
+.lista td[scope="str"] {
+	text-align: left;
+	text-indent: 5px;
+}
+
+.lista td[scope="fecha"] {
+	text-align: center;
+}
+
+.formBuque {
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: small;
+}
+
+.formBuque fieldset {
+	border-collapse: collapse;
+	border-width: 1px;
+	border-radius: 10px;
+}
+
+.formBuque label {
+	display: block;
+	width: 100px;
+	margin-right: 5px;
+	float: left;
+}
+
+.registroTrue {
+	font-style: italic;
+	color: #00EE76;
+}

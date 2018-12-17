@@ -17,6 +17,25 @@ class BuqueController extends Controller
         //
     }
 
+    public function getBuques($linea)
+    {
+        $buques = Buque::with('lineas:id,nombre')
+        ->where('activo',0)
+        ->where('linea',$linea)
+        ->get();
+        // dd($buques);
+        $resultados = collect();
+        foreach ($buques as $key => $value) {
+            $resultados->push([
+                'extra' => $value->lineas->nombre,
+                'label' => $value->nombre,
+                'value' => $value->id
+            ]);
+        }
+
+        return $resultados;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

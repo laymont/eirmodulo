@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ayaguna, Control de Equipos">
+<meta name="author" content="Laymont Arratia">
+<title>Ayaguna 2.0.1</title>
+<!--Estilos-->
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/table/bootstrap-table.css">
+<link rel="stylesheet" href="../bootstrap/css/styleBootstrap.css">
+<link rel="stylesheet" href="../bootstrap/table/bootstrap-table.min.css">
+<!--Script-->
+<script src="../bootstrap/js/jquery.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/table/bootstrap-table.js"></script>
+<script src="../bootstrap/table/locale/bootstrap-table-es-SP.js"></script>
+<script src="../bootstrap/table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+<script src="../bootstrap/table/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="../bootstrap/table/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
+<script src="../bootstrap/table/extensions/export/bootstrap-table-export.js"></script>
+<script type="text/javascript" src="../bootstrap/table/tableExport.js"></script>
+<script src="../bootstrap/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+</head>
+<body>
+<div class="container-fluid"> 
+  <!--nav-->
+  <div class="row">
+    <div class="col-sm-12">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="#"><span class="text-primary">Ayaguna</span></a> </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../inicio.php">Regresar</a></li>
+                        <li><a href="egresosExp.php?f1=2016-09-14&f2=2016-09-14" id="exportar">Exportar</a></li>
+                        <p class="navbar-text navbar-right"> <small class="text-info">Intercontainers La Guaira C.A.</small></p>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>&nbsp; </h3>
+    </div>
+  </div>
+  <!--nav--> 
+  <!--cuerpo-->
+  <div class="row">
+    <div class="col-sm-6"> 
+      <!--formulario-->
+      <form class="form-inline" action="/ayaguna22/reportes/egresos.php" method="post" name="rangofecha" id="rangofecha"  onKeyPress="Noenter();">
+        <fieldset>
+          <legend>Defina el Rango de Fecha</legend>
+          <div class="form-group input-group">
+            <label class="input-group-addon" for="ini">Inicio:</label>
+                        <input class="form-control" name="ini" type="date" required id="ini" value="2016-09-14" max="2016-09-15">
+          </div>
+          <div class="form-group input-group">
+            <label class="input-group-addon" for="fin">Final:</label>
+                        <input class="form-control" name="fin" type="date" required id="fin" value="2016-09-14" max="2016-09-15">
+          </div>
+          <button type="submit" class="btn btn-primary" value="Enviar">&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;</button>
+        </fieldset>
+      </form>
+      <!--formulario--> 
+    </div>
+  </div>
+    <div class="row">
+    <h3>Egresos General</h3>
+    <div class="col-sm-4"> 
+      <!--Resumen20--> 
+      <!--Recuento 20-->
+          </div>
+    <div class="col-sm-4"> 
+      <!--Resumen40--> 
+      <!--Recuento 40-->
+            <table class="table table-bordered table-hover table-striped table-condensed">
+        <tr>
+          <th scope="col">Tipo</th>
+          <th scope="col">Cantidad</th>
+        </tr>
+                <tr>
+          <td scope="strn">40' HC</td>
+          <td scope="float">2</td>
+        </tr>
+                <tr>
+          <td scope="strd">Total:</td>
+          <td scope="float">2</td>
+        </tr>
+      </table>
+          </div>
+    <div class="col-sm-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table id="table" class="table table-bordered table-condensed table-hover sortable bootstrap-table" 
+               data-toggle="table"
+               data-show-columns="true"
+               data-show-toggle="true"
+               data-show-export="true"
+               data-search="true"
+               data-pagination="true"
+               data-key-events="true"
+               data-sortable="true"
+               data-sort-name="#"
+               data-sort-order="asc"
+               data-show-pagination-switch="true"
+               data-pagination-v-align="both"
+               data-page-size="50"
+               data-pagination-first-text="Inicio"
+               data-pagination-pre-text="Previo"
+               data-pagination-next-text="Siguiente"
+               data-pagination-last-text="Ultimo"
+               data-maintain-selected="true"
+               data-toolbar="#toolbar"
+               data-search-align="left"
+               data-buttons-align="left"
+               data-toolbar-align="right"
+               data-locale="es-SP">
+        <caption>
+        Listado de Equipos: 2        </caption>
+        <thead>
+          <tr>
+            <th data-field="#" data-sortable="true" data-sorter="alphanum" scope="col" class="header">#</th>
+            <th  data-field="linea" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header" scope="col">Linea</th>
+            <th data-field="buque" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Buque</th>
+            <th data-field="viaje" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Viaje</th>
+            <th data-field="contenedor" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Contenedor</th>
+            <th data-field="tipo" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header" scope="col">Tipo</th>
+            <th data-field="fdb" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Fdb</th>
+            <th data-field="fdm" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Fdm</th>
+            <th data-field="fdr" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Fdr</th>
+            <th data-field="fdes" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header" scope="col">Fdes</th>
+            <th data-field="boking" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header" scope="col">Booking</th>
+            <th data-field="fact" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Fact.</th>
+            <th data-field="eir" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">EIR</th>
+            <th data-field="est" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Est.</th>
+            <th data-field="cond" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Cond.</th>
+            <th data-field="pre" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Pre.</th>
+            <th data-field="b/l" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">B/L</th>
+            <th data-field="patio" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Patio</th>
+            <th data-field="consig" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">Consig.</th>
+            <th data-field="obs" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header" scope="col">Obs.&nbsp;</th>
+            <th data-field="da" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header" scope="col">D.A.</th>
+            <th data-field="dp" data-sortable="true" data-searchable="true" data-sorter="alphanum" scope="col" class="header">D.P.</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th colspan="2" scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+          </tr>
+        </tfoot>
+                <tr>
+          <td scope="num">1</td>
+          <td scope="strn">KING OCEAN</td>
+          <td scope="strn">LION</td>
+          <td scope="strd">32/SB</td>
+          <td scope="strn">KOSU4994672</td>
+          <td scope="strd">40' HC</td>
+          <td scope="strd">2016-09-02</td>
+          <td scope="strd">2016-09-12</td>
+          <td scope="strd">2016-09-13</td>
+          <td scope="strd">2016-09-14</td>
+          <td scope="strd">10333646</td>
+          <td scope="num">17</td>
+          <td scope="num">75017</td>
+          <td scope="strd">EMPTY</td>
+          <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+          <td scope="num"></td>
+          <td scope="strn">PEVLAG40965</td>
+          <td scope="strn"><small>LAGINTERC</small></td>
+          <td scope="btxt"><small>CORPORACION XDV, C.A.</small></td>
+          <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURAS EN GENERAL"><small>Ver</small></a></td>
+          <td scope="num" data-align="right"><span id="da">
+            1            </span></td>
+          <td scope="num" data-align="right"><span id="dp">
+            12            </span></td>
+        </tr>
+                <tr>
+          <td scope="num">2</td>
+          <td scope="strn">KING OCEAN</td>
+          <td scope="strn">MELBOURNE STRAIT</td>
+          <td scope="strd">142/SB</td>
+          <td scope="strn">KOSU4955228</td>
+          <td scope="strd">40' HC</td>
+          <td scope="strd">2016-09-10</td>
+          <td scope="strd">2016-09-13</td>
+          <td scope="strd">2016-09-13</td>
+          <td scope="strd">2016-09-14</td>
+          <td scope="strd">10333646</td>
+          <td scope="num">0</td>
+          <td scope="num">75019</td>
+          <td scope="strd">EMPTY</td>
+          <td scope="strd"><span style='color:#008B00;'>OPR1</span></td>
+          <td scope="num"></td>
+          <td scope="strn">PEVLAG41103</td>
+          <td scope="strn"><small>LAGINTERC</small></td>
+          <td scope="btxt"><small>CONSOLIDADOS TRANSVEN, C.A.</small></td>
+          <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURAS LEVES"><small>Ver</small></a></td>
+          <td scope="num" data-align="right"><span id="da">
+            1            </span></td>
+          <td scope="num" data-align="right"><span id="dp">
+            4            </span></td>
+        </tr>
+              </table>
+    </div>
+  </div>
+  </div>
+<script>
+$("nav.navbar-fixed-top").autoHidingNavbar();
+
+var $table = $('#table');
+$(function () {
+	$table.on('click-row.bs.table', function (e, row, $element) {
+		$('.success').removeClass('success');
+		$($element).addClass('success');
+	});
+});
+</script>
+<small>Segundos: 0</small>
+</body>

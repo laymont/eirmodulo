@@ -17,6 +17,28 @@ class TequipoController extends Controller
         //
     }
 
+    public function getTipos()
+    {
+      $tipos = Tequipo::all();
+      $resultados = collect();
+      foreach ($tipos as $key => $value) {
+        if (preg_match('/^20/', $value->tipo)) {
+          $resultados->push([
+            'label' => $value->tipo,
+            'value' => $value->id,
+            'size' => 20
+          ]);
+        }else if(preg_match('/^40/', $value->tipo)){
+          $resultados->push([
+            'label' => $value->tipo,
+            'value' => $value->id,
+            'size' => 40
+          ]);
+        }
+      }
+      return $resultados;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -82,4 +104,4 @@ class TequipoController extends Controller
     {
         //
     }
-}
+  }

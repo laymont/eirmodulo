@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ayaguna 2.0</title>
+<style type="text/css">
+<!--
+body {
+	line-height: 1.4;
+	font-size: 100%;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	background-color: #E6E6FA;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen del bloque contenedor. El margen inferior restante lo mantendrá separado de los elementos de que le sigan.  */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de los bloques, en lugar de en los elementos del bloque propiamente dicho, elimina todas las matemáticas de modelo de cuadro. Un bloque anidado con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+/* ~~ Este contenedor de anchura fija rodea a todas las demás bloques ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño  */
+}
+/* ~~ No se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. ~~ */
+header {
+	background-color: #2626FF;
+	background-image: -webkit-linear-gradient(270deg,rgba(38,38,255,1.00) 0%,rgba(115,185,255,1.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(38,38,255,1.00) 0%,rgba(115,185,255,1.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(38,38,255,1.00) 0%,rgba(115,185,255,1.00) 100%);
+	background-image: linear-gradient(180deg,rgba(38,38,255,1.00) 0%,rgba(115,185,255,1.00) 100%);
+}
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de los elementos del bloque. Los elementos situados dentro de estos bloques tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral al bloque propiamente dicho, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en el  bloque y colocar un segundo bloque dentro de éste sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en un bloque configurado para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de bloques para los que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla del elemento del bloque para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos bloques de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover los bloques por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: right;
+	width: 180px;
+	background-color: #C6E2FF;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 780px;
+	float: right;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones  */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados  */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #87CEFA;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #4682B4;
+	color: #FFF;
+}
+
+/* ~~ El pie de página ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #708090;
+	position: relative;/* esto da a IE6 el parámetro hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+
+/*Compatibilidad con HTML5: define nuevas etiquetas HTML5 como display:block para que los navegadores sepan cómo procesar las etiquetas correctamente. */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+.tachado {
+	text-decoration: line-through;
+	color: #D8D5D5;
+}
+.sub {
+	font-size: x-small;
+	color: #04AB60;
+}
+.nota { }
+-->
+</style><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--></head>
+
+<body>
+
+<div class="container">
+  <header>
+    <a href="#"><img src="../img/logo.fw.png" alt="Insertar logotipo aquí" width="180" height="90" id="Insert_logo" style="background-color: #9FB6CD; display: block;" /></a>
+  </header>
+  <div class="sidebar1">
+    <ul class="nav">
+        <li><a href="#">Movimientos</a></li>
+        <li><a href="#">Reportes</a></li>
+        <li><a href="#">Reparación</a></li>
+        <li><a href="#">Administración</a></li>
+    </ul>
+    <aside>
+      <p> Los vínculos anteriores muestran una estructura de navegación básica que emplea una lista no ordenada con estilo de CSS. Utilícela como punto de partida y modifique las propiedades para lograr el aspecto deseado. Si necesita menús desplegables, créelos empleando un menú de Spry, un widget de menú de Adobe Exchange u otras soluciones de javascript o CSS. </p>
+      <p>Si desea que la navegación se sitúe a lo largo de la parte superior, simplemente mueva ul a la parte superior de la página y vuelva a crear el estilo.</p>
+    </aside>
+  <!-- end .sidebar1 --></div>
+  <article class="content">
+    <h1>Ayaguna</h1>
+    <section>
+     <h2>Que es Ayaguna</h2>
+      <p>Ayaguna Contro de Contenedores, es un aplicación Web desarrollada con los lenguajes HTML 5, PHP 5, MySQL, Javascripts y JQuery. Como su nombre lo indica esta orientada al control de contenedores maritimos. Su principal ventaja se basa en que es una herramienta en linea, lo cual le permite a su empresa poder tener a la mano la información necesaria con tan solo contar con una dispositivo con conexión a internet y un navegador. Tanto la empresa como sus clientes tendra en tiempo real la información que necesitan en cualquier momento, contando con esta las 24 hrs del dia, los 365 dias del año.</p>
+      <p>Ayaguna es una aplicación completamente amigable y con posibilidad de ajustarse a las necesidades de cada empresa.</p>
+    </section>
+    <section>
+      <h2>Comenzando</h2>
+      <p>Antes de comenzar a dar uso a la aplicación, el usuario Administrador debe completar ciertas tareas. Se deben registrar: Los Usuarios, las Lineas, los Buques, los Viajes. La aplicación cuenta con la opción de importar lista de descarga de buque, para de este modo facilitar la introducción de los datos y minimizar el margen de error en el registro de los datos. Una vez completadas las tareas antes indicadas ya pueden comenzar a dar uso a la aplicación. </p>
+    </section>
+    <section>
+      <h2>Menu (mapa)</h2>
+      <p>A continuación una breve descripcion del menu de la aplicación:</p>
+      <ul>
+        <li>Movimientos
+          <ul>
+            <li>Ingresos
+              <ul>
+                <li>Full</li>
+                <li>Vacio</li>
+                <li>Precargado</li>
+              </ul>
+            </li>
+            <li>Egresos
+              <ul>
+                <li>Despacho</li>
+                <li>Devolución</li>
+                <li>Asignación</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Reportes
+          <ul>
+            <li>Inventario</li>
+            <li>Ingresos</li>
+            <li>Egresos</li>
+          </ul>
+        </li>
+        <li>Reparación
+          <ul>
+            <li>Reparar</li>
+            <li>Reporte</li>
+          </ul>
+        </li>
+        <li>Administración
+          <ul>
+            <li>Usuario</li>
+            <li>Linea</li>
+            <li>Buque</li>
+            <li>Viaje</li>
+            <li>Consignatario</li>
+            <li>Precargar</li>
+            <li>Asignación</li>
+            <li><span class="tachado">Mora</span><span class="sub"> Proximo</span></li>
+            <li>Acopio<span class="sub">&nbsp;</span></li>
+            <li><span class="tachado">EIR</span><span class="sub"> Proximo</span></li>
+          </ul>
+        </li>
+      </ul>
+      <h2>Tracking</h2>
+      <p>Este modulo se encuetra en la pantalla de inicio de la aplicacion, el campo a traves del cual se accede a este, tiene la etiqueta &quot;Busqueda&quot;; ingrese el numero del contenedor que esta buscando. Luego de hacer click en el boton enviar, obtendra la informacion del equipo que esta buscando; se mostraran los N cantidad de movimientos (registros) que posea el contenedor en el sistema. El campo IN/OUT de la tabla donde se muestra la información, indica si el contenedor esta dentro (In) o fuera (Out) del inventario. </p>
+      <h2>Editar datos del contenedor</h2>
+      <p>Para editar los datos del contenedor debera acceder a traves del tracking, una vez que obtenga la respuesta, notara que el numero de contenedor aparece subrayado; haciendo click sobre el numero del contenedor podra editar los datos del contenedor.</p>
+      <h2>Movimientos</h2>
+      <h4>Ingresos - Full</h4>
+      <p>Eu augue, scelerisque magna et a et, odio. Turpis dignissim habitasse est, augue nec, elementum montes enim, pulvinar dis adipiscing, ut est. Hac. In, hac hac amet diam cum dictumst scelerisque dignissim dis! Enim nunc? Nisi! Mauris adipiscing placerat porta, placerat integer, in vel vel integer? Placerat turpis natoque sed enim, turpis? Pid, nec sociis nunc, dignissim? Ac nunc magnis? Vel, aliquet in, augue. Nec in urna dolor? Sagittis tempor, sit odio dolor nec! A porttitor porttitor! Sed est massa, elementum parturient! Pulvinar enim sociis sed sagittis adipiscing, lundium scelerisque lundium, porttitor a habitasse risus nisi, sed turpis pulvinar nisi, odio enim amet amet turpis urna arcu nisi! Rhoncus natoque! Placerat quis, augue, arcu. In! Dictumst lundium sed et, magnis.</p>
+      <h4>Ingresos - Vacios</h4>
+      <p>Modulo para registrar el movimiento de ingreso de contenedores vacios; el usuario debera completar los datos necesarios para registrar el ingreso del contenedor vacio. Los datos requeridos son:</p>
+      <ul>
+        <li>EIR</li>
+        <li>Linea</li>
+        <li>Buque</li>
+        <li>Viaje</li>
+        <li>Equipo</li>
+        <li>Tipo</li>
+        <li>Condición</li>
+        <li>Fecha Muelle (Despacho Pto.)</li>
+        <li>Fecha de Recepción (Alm.).</li>
+        <li>Consignatario</li>
+        <li>Ubicación</li>
+        <li>Observaciones</li>
+      </ul>
+      <p>La version 2.0 de Ayaguna cuenta con comportamientos del lado del cliente para prevenir el ingreso de contenedores que ya esten registrados en el inventario. Asi como tambien valida el numero del contenedor segun la norma ISO-6346, el campo Equipo del formulario de ingreso es el encargado de informar sobre la validacion del numero del equipo.</p>
+      <p>Actualmente la aplicación se encuentra en la planificación y desarrollo del modulo para la emisión de EIR.</p>
+      <h4>Ingreso - Precargado</h4>
+      <p>Gracias a el modúlo de Precarga, la aplicación puede importar las lista de descargas emitidas por las lineas; desde esta lista precargada se puede ingresar de manera individual los datos de los contenedores, a los cuales se les debe anexar los datos faltantes para completar el resgistro del ingreso.      </p>
+      <p>Para quitar los estilos en línea, asegúrese de que el panel Estilos CSS está configurado como Actual. Seleccione la imagen y, en la sección Propiedades del panel Estilos CSS, haga clic con el botón derecho del ratón y elimine las propiedades de visualización y de fondo. (Por supuesto que siempre podrá ir directamente al código y eliminar allí los estilos en línea de la imagen o el marcador de posición.)</p>
+    </section>
+    <section>
+      <h2>Reportes</h2>
+      <h3>General</h3>
+      <p>Reporte de inventario general.</p>
+      <h3>Linea</h3>
+      <p>Reporte de inventario por linea (Selección).</p>
+      <h3>Condición</h3>
+      <p>Reporte de inventario por condición, seleccione la linea y la condición.</p>
+      <h3>Patio</h3>
+      <p>Reporte de inventario por patio, seleccione el patio.</p>
+      <h3>Alerta</h3>
+      <p>Reporte de contenedores que excedieron los noventa (90) dias en el pais.    </p>
+    </section>
+    <!-- end .content --></article>
+  <footer>
+    <p>Este footer contiene la declaración position:relative; para dar a Internet Explorer 6 hasLayout para footer y provocar que se borre correctamente. Si no es necesario proporcionar compatibilidad con IE6, puede quitarlo.</p>
+    <address>
+      Contenido de dirección
+    </address>
+  </footer>
+  <!-- end .container --></div>
+</body>
+</html>

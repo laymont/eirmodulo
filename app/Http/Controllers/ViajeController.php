@@ -17,6 +17,23 @@ class ViajeController extends Controller
         //
     }
 
+    public function getViajes($buque)
+    {
+        $viajes = Viaje::where('activo',0)
+        ->where('buque', $buque)
+        ->get();
+        $resultados = collect();
+        foreach ($viajes as $key => $value) {
+            $resultados->push([
+                'label' => $value->viaje,
+                'value' => $value->id,
+                'eta' => $value->eta
+            ]);
+        }
+
+        return $resultados;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

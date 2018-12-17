@@ -14,6 +14,10 @@ class Inventario extends Model
   protected $table = 'inventario';
   protected $guarded = ['id'];
   protected $dates = ['fdb','fdm','frd','fdespims','mod'];
+  const CREATED_AT = null;
+  const UPDATED_AT = null;
+  const DELETED_AT = null;
+
   /**
    * Fields that can be mass assigned.
    *
@@ -80,5 +84,26 @@ class Inventario extends Model
   {
     // belongsTo(RelatedModel, foreignKey = consignatarios_id, keyOnRelatedModel = id)
     return $this->belongsTo(Consignatario::class,'consignatario');
+  }
+
+  /**
+   * Inventario belongs to Buque.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
+  public function buquesd()
+  {
+    // belongsTo(RelatedModel, foreignKey = buque_id, keyOnRelatedModel = id)
+    return $this->belongsTo(Buque::class,'buqued');
+  }
+  /**
+   * Inventario belongs to Viaje.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
+  public function viajesd()
+  {
+    // belongsTo(RelatedModel, foreignKey = viaje_id, keyOnRelatedModel = id)
+    return $this->belongsTo(Viaje::class,'viajed');
   }
 }

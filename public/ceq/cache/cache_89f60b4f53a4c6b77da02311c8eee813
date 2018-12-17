@@ -1,0 +1,1755 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ayaguna, Control de Equipos">
+<meta name="author" content="Laymont Arratia">
+<title>Ayaguna 2.0.1</title>
+<!--Estilos-->
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/table/bootstrap-table.css">
+<link rel="stylesheet" href="../bootstrap/css/styleBootstrap.css">
+<link rel="stylesheet" href="../bootstrap/table/bootstrap-table.min.css">
+<!--Script-->
+<script src="../bootstrap/js/jquery.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/table/bootstrap-table.js"></script>
+<script src="../bootstrap/table/locale/bootstrap-table-es-SP.js"></script>
+<script src="../bootstrap/table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+<script src="../bootstrap/table/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="../bootstrap/table/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
+<script src="../bootstrap/table/extensions/export/bootstrap-table-export.js"></script>
+<script type="text/javascript" src="../bootstrap/table/tableExport.js"></script>
+<script src="../bootstrap/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+</head>
+<body>
+<div id="contenedor" class="container-fluid">
+ <div class="row">
+  <div class="col-sm-12">
+   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+     <a class="navbar-brand" href="#"><span class="text-primary">Ayaguna</span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav">
+      <li class="active"><a href="../inicio.php">Regresar</a></li>
+      <li><a href="inventarioExp.php" id="exportar">Exportar</a></li>
+      <p class="navbar-text navbar-right"> <small class="text-info">DEMO CEQ (Ayaguna) v2.0</small></p>
+     </ul>
+    </div>
+   </nav>
+  </div>
+ </div>
+ <div class="row">
+  <div class="col-md-12">
+   <h3>&nbsp; </h3>
+  </div>
+ </div>
+ <div class="row">
+  <h3>Inventario General</h3>
+  <div class="col-sm-4">
+   <table border="1" cellpadding="1" cellspacing="1"  class="table table-bordered table-hover table-striped table-condensed" id="r20">
+    <thead>
+     <tr>
+      <th scope="col">Tipo</th>
+      <th scope="col">Cantidad</th>
+     </tr>
+    </thead>
+    <tbody>
+          <tr>
+      <td scope="strn">20' DC</td>
+      <td scope="float">28</td>
+     </tr>
+         </tbody>
+    <tfoot>
+     <tr>
+      <td scope="strd">Total:</td>
+      <td scope="float">28</td>
+     </tr>
+    </tfoot>
+   </table>
+  </div>
+  <div class="col-sm-4">
+   <table class="table table-bordered table-hover table-striped table-condensed">
+    <thead>
+     <tr>
+      <th scope="col">Tipo</th>
+      <th scope="col">Cantidad</th>
+     </tr>
+    </thead>
+    <tbody>
+          <tr>
+      <td scope="strn">40' DC</td>
+      <td scope="float">15</td>
+     </tr>
+          <tr>
+      <td scope="strn">40' HC</td>
+      <td scope="float">20</td>
+     </tr>
+         </tbody>
+    <tfoot>
+     <tr>
+      <td scope="strd">Total:</td>
+      <td scope="float">35</td>
+     </tr>
+    </tfoot>
+   </table>
+  </div>
+  <div class="col-sm-4">
+  </div>
+ </div>
+ <div class="row">
+  <div class="col-xs-12">
+   <table id="table" class="table table-bordered table-condensed table-hover sortable bootstrap-table" 
+               data-toggle="table"
+               data-show-columns="true"
+               data-show-toggle="true"
+               data-show-export="true"
+               data-search="true"
+               data-pagination="true"
+               data-key-events="true"
+               data-sortable="true"
+               data-sort-name="#"
+               data-sort-order="asc"
+               data-show-pagination-switch="true"
+               data-pagination-v-align="both"
+               data-page-size="50"
+               data-pagination-first-text="Inicio"
+               data-pagination-pre-text="Previo"
+               data-pagination-next-text="Siguiente"
+               data-pagination-last-text="Ultimo"
+               data-maintain-selected="true"
+               data-toolbar="#toolbar"
+               data-search-align="left"
+               data-buttons-align="left"
+               data-toolbar-align="right"
+               data-locale="es-SP">
+    <caption>
+    Listado de Equipos: 63    </caption>
+    <thead>
+     <tr>
+      <th data-field="#" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">#</th>
+      <th data-field="linea" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col" >Linea</th>
+      <th data-field="buque" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Buque</th>
+      <th data-field="viaje" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header" scope="col">Viaje</th>
+      <th data-field="contenedor" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Contenedor</th>
+      <th data-field="tipo" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Tipo</th>
+      <th data-field="fdb" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Fdb</th>
+      <th data-field="fdm" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Fdm</th>
+      <th data-field="fdr" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Fdr</th>
+      <th data-field="fact" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Fact.</th>
+      <!-- Requerimiento INTERCONTAINERS -->
+       <th data-field="pase" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Pase</th>
+       <!-- Requerimiento INTERCONTAINERS -->
+      <th data-field="eir" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">EIR</th>
+      <th data-field="est" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Est.</th>
+      <th data-field="cond" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Cond.</th>
+      <th data-field="pre" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Pre.</th>
+      <th data-field="b/l" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">B/L</th>
+      <th data-field="patio" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Patio</th>
+      <th data-field="consig" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Consig.</th>
+      <th data-field="obs" data-sortable="true" data-searchable="true" data-sorter="alphanum"  class="header" scope="col">Obs.</th>
+      <th data-field="da" data-sortable="true" data-searchable="true" data-sorter="alphanum" data-align="right"  class="header" scope="col">D.A.</th>
+      <th data-field="dp" data-sortable="true" data-searchable="true" data-sorter="alphanum" data-align="right"  class="header" scope="col">D.P.</th>
+     </tr>
+    </thead>
+        <tr>
+     <td scope="num">1</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">083</td>
+     <td scope="strn">SEGU4538776</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-12-04</td>
+     <td scope="strd">2017-12-09</td>
+     <td scope="strd">2017-12-11</td>
+     <td scope="num">593</td>
+     <td scope="num">0</td>
+     <td scope="num">868</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006459837</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>CONSTRUCTORA NORBERTO ODEBRECHT,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL,HUECO DE APROXIMADAMENTE 5CMT LADO DERECHO PANEL 1 Y 3 PARTE DE ABAJO      </td>
+     <td scope="num" data-align="right"><span id="da">
+      194      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      201      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">2</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TGHU1092539</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-15</td>
+     <td scope="strd">2017-11-18</td>
+     <td scope="num">528</td>
+     <td scope="num">0</td>
+     <td scope="num">769</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13702187166</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>REPUESTOS ORION,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      217      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">3</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU5888954</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-11</td>
+     <td scope="strd">2017-11-12</td>
+     <td scope="num">495</td>
+     <td scope="num">0</td>
+     <td scope="num">721</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006734560</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>AVICOLA EL CARDENAL, S.R.L.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      223      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">4</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCNU8204217</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-11-11</td>
+     <td scope="strd">2017-11-11</td>
+     <td scope="num">486</td>
+     <td scope="num">0</td>
+     <td scope="num">713</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006160677</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PRODUCTOS SWISSAGRO, C.A.</small></td>
+     <td scope="obs">BARRA DOBLADA PTA LADO DERECHO      </td>
+     <td scope="num" data-align="right"><span id="da">
+      224      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">5</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU8871017</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-11-05</td>
+     <td scope="strd">2017-11-11</td>
+     <td scope="num">488</td>
+     <td scope="num">0</td>
+     <td scope="num">711</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006160738</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PRODUCTOS SWISSAGRO, C.A.</small></td>
+     <td scope="obs">ABOLLADURA Y Ã“XIDOS EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      224      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">6</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU0670635</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-11-09</td>
+     <td scope="strd">2017-11-11</td>
+     <td scope="num">473</td>
+     <td scope="num">0</td>
+     <td scope="num">707</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13702240506</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PANATLANTIC DE VENEZUELA, C.A.</small></td>
+     <td scope="obs">ABOLLADURA Y OXIDO GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      224      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">7</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU5826103</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="strd">2017-11-08</td>
+     <td scope="num">479</td>
+     <td scope="num">0</td>
+     <td scope="num">692</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006649577</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PROCTER & GAMBLE DE VENEZUELA, S.C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      227      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">8</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU5876357</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="strd">2017-11-08</td>
+     <td scope="num">479</td>
+     <td scope="num">0</td>
+     <td scope="num">693</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006649577</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PROCTER & GAMBLE DE VENEZUELA, S.C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      227      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">9</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU5822448</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="strd">2017-11-08</td>
+     <td scope="num">476</td>
+     <td scope="num">0</td>
+     <td scope="num">705</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006279326</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>JUAN VAN HEEL,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      227      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">10</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU4417562</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="strd">2017-11-08</td>
+     <td scope="num">479</td>
+     <td scope="num">0</td>
+     <td scope="num">703</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006649577</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PROCTER & GAMBLE DE VENEZUELA, S.C.A.</small></td>
+     <td scope="obs">ABOLLADURAS HACIA ADENTRO SECCION PANEL 5-6-7 LADO IZQUIERDO Y LADO DERECHO </td>
+     <td scope="num" data-align="right"><span id="da">
+      227      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">11</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">CAXU4757254</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="strd">2017-11-08</td>
+     <td scope="num">478</td>
+     <td scope="num">0</td>
+     <td scope="num">704</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006251550</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>EMI EQUIPOS Y SISTEMAS,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      227      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">12</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">SEGU4051896</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="num">444</td>
+     <td scope="num">0</td>
+     <td scope="num">659</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006774943</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>CORPORACION EDUC-ARTE JED,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      228      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">13</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU8959324</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="num">444</td>
+     <td scope="num">0</td>
+     <td scope="num">667</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006774943</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>CORPORACION EDUC-ARTE JED,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      228      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">14</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU5862775</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="num">456</td>
+     <td scope="num">0</td>
+     <td scope="num">669</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006342244</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>lABORATORIOS BEHRENS, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL, BARRA PURTA LADO DERECHO DOBLADA</td>
+     <td scope="num" data-align="right"><span id="da">
+      228      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">15</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">SEGU4244998</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="num">434</td>
+     <td scope="num">0</td>
+     <td scope="num">675</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU11019228622</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>MASTER KIDS DE VENEZUELA, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      228      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">16</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">CXDU1661304</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="num">464</td>
+     <td scope="num">0</td>
+     <td scope="num">677</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU27801864304</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>ALAFLETES AGENCIA DE ADUANAS</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      228      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">17</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU4262943</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="num">468</td>
+     <td scope="num">0</td>
+     <td scope="num">678</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006720084</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PROARCA</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      228      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">18</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU0736938</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="num">468</td>
+     <td scope="num">0</td>
+     <td scope="num">679</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006720084</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PROARCA</small></td>
+     <td scope="obs">ABOLLADURAS Y OXDIDO EN GENERAL, MANILLA PUERTA LADO IZQUIERDO DOBLADA</td>
+     <td scope="num" data-align="right"><span id="da">
+      228      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">19</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU6455432</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="strd">2017-11-07</td>
+     <td scope="num">469</td>
+     <td scope="num">0</td>
+     <td scope="num">682</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006822867</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>SISVEN SEGURIDAD,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      228      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">20</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">CXDU1503649</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-11-04</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="num">438</td>
+     <td scope="num">0</td>
+     <td scope="num">646</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13500982999</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>TOTAL OFFICE DE VENEZUELA,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      229      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">21</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU8520075</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-05</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="num">443</td>
+     <td scope="num">0</td>
+     <td scope="num">645</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU2600677486</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>CASA VALENCIA, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      229      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">22</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCNU6708034</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-05</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="num">443</td>
+     <td scope="num">0</td>
+     <td scope="num">643</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006774861</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>CASA VALENCIA, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      229      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">23</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU6810251</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-11-01</td>
+     <td scope="strd">2017-11-06</td>
+     <td scope="num">453</td>
+     <td scope="num">0</td>
+     <td scope="num">655</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU12010060589</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>INDUSTRIAS FAACA, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      229      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">24</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOAU6792789</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-31</td>
+     <td scope="strd">2017-11-04</td>
+     <td scope="num">425</td>
+     <td scope="num">0</td>
+     <td scope="num">635</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006220971</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>INDUSTRIAS QUIMICAS VOLCAN SARQUIS INQUIVOSA,S.A..</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      231      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">25</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU6378260</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-10-29</td>
+     <td scope="strd">2017-11-01</td>
+     <td scope="num">414</td>
+     <td scope="num">0</td>
+     <td scope="num">617</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006846010</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>TIENDA DE ANIMALES DON PERRO, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL, BARRAS DOBLADAS AMBAS PUERTAS, PORTA PRECINTO DOBLADO</td>
+     <td scope="num" data-align="right"><span id="da">
+      234      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">26</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOAU6712891</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-31</td>
+     <td scope="strd">2017-11-01</td>
+     <td scope="num">386</td>
+     <td scope="num">0</td>
+     <td scope="num">618</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU15452185347</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>GIFORT IMPORT,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO Y GENERAL, BARRA PUERTA LADO IZQUIERDO DOBLADA</td>
+     <td scope="num" data-align="right"><span id="da">
+      234      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">27</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU5577415</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-31</td>
+     <td scope="strd">2017-11-01</td>
+     <td scope="num">421</td>
+     <td scope="num">0</td>
+     <td scope="num">620</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006130245</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>ITACA,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      234      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">28</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOFU0622447</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-10-31</td>
+     <td scope="strd">2017-11-01</td>
+     <td scope="num">423</td>
+     <td scope="num">0</td>
+     <td scope="num">622</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU15321624413</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>DISTRIBUIDORA XERAVALON,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      234      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">29</td>
+     <td scope="strn">ZIM LINE</td>
+     <td scope="strn">BUQUE H</td>
+     <td scope="strd">1333</td>
+     <td scope="strn">MOAU0727467</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-27</td>
+     <td scope="strd">2017-10-29</td>
+     <td scope="strd">2017-11-01</td>
+     <td scope="num">411</td>
+     <td scope="num">0</td>
+     <td scope="num">624</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006226162</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>SUPER OCTANOS, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      234      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      300      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">30</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TTNU4091202</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-10-30</td>
+     <td scope="strd">2017-10-31</td>
+     <td scope="num">412</td>
+     <td scope="num">0</td>
+     <td scope="num">608</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006789476</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PROARCA</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      235      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">31</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCNU9632930</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-10-29</td>
+     <td scope="strd">2017-10-31</td>
+     <td scope="num">414</td>
+     <td scope="num">0</td>
+     <td scope="num">611</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006846010</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>TIENDA DE ANIMALES DON PERRO, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      235      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      241      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">32</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCNU5076637</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-29</td>
+     <td scope="strd">2017-10-30</td>
+     <td scope="num">400</td>
+     <td scope="num">0</td>
+     <td scope="num">604</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006193958</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>lABORATORIOS BEHRENS, C.A.</small></td>
+     <td scope="obs">ABOLLADURA FUERTE HACIA ADENTRO LADO IZQUIERDO</td>
+     <td scope="num" data-align="right"><span id="da">
+      236      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">33</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCNU5080663</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-29</td>
+     <td scope="strd">2017-10-30</td>
+     <td scope="num">400</td>
+     <td scope="num">0</td>
+     <td scope="num">606</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006193958</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>lABORATORIOS BEHRENS, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      236      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">34</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">TGHU6624758</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-22</td>
+     <td scope="strd">2017-10-29</td>
+     <td scope="num">407</td>
+     <td scope="num">0</td>
+     <td scope="num">600</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006163104</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>VEXIMCA,C.A.</small></td>
+     <td scope="obs">AMBAS BARRAS DOBLADAS PUERTA LADO DERECHO</td>
+     <td scope="num" data-align="right"><span id="da">
+      237      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">35</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">TCLU5593329</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-22</td>
+     <td scope="strd">2017-10-29</td>
+     <td scope="num">407</td>
+     <td scope="num">0</td>
+     <td scope="num">599</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006163104</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>VEXIMCA,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      237      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">36</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU3191995</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="strd">2017-10-28</td>
+     <td scope="num">402</td>
+     <td scope="num">0</td>
+     <td scope="num">593</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006170994</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>lABORATORIOS BEHRENS, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      238      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">37</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCLU5622710</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-24</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="num">381</td>
+     <td scope="num">0</td>
+     <td scope="num">582</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006734489</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>REPRESENTACIONES  AQUATRECE,C.A.</small></td>
+     <td scope="obs">abolladura seccion panle 5-6 lado derecho y oxido en general</td>
+     <td scope="num" data-align="right"><span id="da">
+      241      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">38</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOAU0618640</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-24</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="num">394</td>
+     <td scope="num">0</td>
+     <td scope="num">583</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006189454</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>DISTRIBUIDORA EURO QUALITET,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      241      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">39</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCNU5709782</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-24</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="num">395</td>
+     <td scope="num">0</td>
+     <td scope="num">586</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13009585130</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>CALZADOS MESVOL, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      241      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">40</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TRHU2751205</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-24</td>
+     <td scope="strd">2017-10-25</td>
+     <td scope="num">397</td>
+     <td scope="num">0</td>
+     <td scope="num">589</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR1</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006195354</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>IMPORTADORA EUROCOMPONENTES,C.A.</small></td>
+     <td scope="obs"></td>
+     <td scope="num" data-align="right"><span id="da">
+      241      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">41</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCKU2188027</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-22</td>
+     <td scope="strd">2017-10-24</td>
+     <td scope="num">381</td>
+     <td scope="num">0</td>
+     <td scope="num">575</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006734489</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>REPRESENTACIONES  AQUATRECE,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      242      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">42</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TEMU3463534</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-22</td>
+     <td scope="strd">2017-10-23</td>
+     <td scope="num">369</td>
+     <td scope="num">0</td>
+     <td scope="num">554</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13500982957</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>DISTRIBUIDORA MART 2000,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDOS EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      243      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">43</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">MOAU0625260</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-22</td>
+     <td scope="strd">2017-10-23</td>
+     <td scope="num">380</td>
+     <td scope="num">0</td>
+     <td scope="num">559</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR1</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006193644</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PULPLUS,C.A.</small></td>
+     <td scope="obs"></td>
+     <td scope="num" data-align="right"><span id="da">
+      243      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">44</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCKU1991224</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-22</td>
+     <td scope="strd">2017-10-23</td>
+     <td scope="num">384</td>
+     <td scope="num">0</td>
+     <td scope="num">567</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006412590</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>AROMA COM,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      243      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">45</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">TEMU3895121</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-22</td>
+     <td scope="strd">2017-10-23</td>
+     <td scope="num">374</td>
+     <td scope="num">0</td>
+     <td scope="num">564</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006125681</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>INDUSTRIAS QUIMICAS ROSER, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      243      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">46</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TEMU2503890</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-23</td>
+     <td scope="strd">2017-10-23</td>
+     <td scope="num">385</td>
+     <td scope="num">0</td>
+     <td scope="num">568</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13500983043</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>BICICLETAS BIKESONE,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      243      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">47</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">TRHU1995742</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-16</td>
+     <td scope="strd">2017-10-18</td>
+     <td scope="num">360</td>
+     <td scope="num">0</td>
+     <td scope="num">545</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006151314</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>INDUSTRIAS QUIMICAS ROSER, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDOS EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      248      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">48</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">CAXU6434820</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-16</td>
+     <td scope="strd">2017-10-17</td>
+     <td scope="num">358</td>
+     <td scope="num">0</td>
+     <td scope="num">536</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006411784</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>INVERSIONES NEWEAR CLASSIC,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL, BARRAS DOBLADAS PUERTA LADO DERECHO DOBLADA</td>
+     <td scope="num" data-align="right"><span id="da">
+      249      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">49</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">MOAU5828763</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-16</td>
+     <td scope="strd">2017-10-17</td>
+     <td scope="num">354</td>
+     <td scope="num">0</td>
+     <td scope="num">540</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU11021286977</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>DISTRIBUIDORA SANIFER, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL, BARRAS AMBAS PUERTAS DOBLADAS</td>
+     <td scope="num" data-align="right"><span id="da">
+      249      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">50</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TRHU2706628</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-15</td>
+     <td scope="strd">2017-10-16</td>
+     <td scope="num">339</td>
+     <td scope="num">0</td>
+     <td scope="num">508</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU26006411742</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>INVERSIONES NEWEAR CLASSIC,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      250      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">51</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">MOAU0567899</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-14</td>
+     <td scope="strd">2017-10-15</td>
+     <td scope="num">328</td>
+     <td scope="num">0</td>
+     <td scope="num">499</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13009757985</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>WORLD TILE 2.010, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      251      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">52</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">TCLU2990364</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-14</td>
+     <td scope="strd">2017-10-15</td>
+     <td scope="num">333</td>
+     <td scope="num">0</td>
+     <td scope="num">502</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13702136765</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>IMPORTACION Y COMERCIALIZACION DE ALIM Y BEB.</small></td>
+     <td scope="obs">ABOLLADURAS HACIA ADENTRO SECCION PANEL 1-2 LADO IZQUIERDO</td>
+     <td scope="num" data-align="right"><span id="da">
+      251      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">53</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">080</td>
+     <td scope="strn">TCKU3029170</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-09-18</td>
+     <td scope="strd">2017-10-14</td>
+     <td scope="strd">2017-10-15</td>
+     <td scope="num">342</td>
+     <td scope="num">0</td>
+     <td scope="num">503</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006126712</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>CALIER INTERNACIONAL, S.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      251      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      278      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">54</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">TRHU2357737</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-10</td>
+     <td scope="strd">2017-10-11</td>
+     <td scope="num">323</td>
+     <td scope="num">0</td>
+     <td scope="num">486</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13702189425</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>SIDISEG ELECTRICA,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      255      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">55</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">TRHU2467380</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-09</td>
+     <td scope="strd">2017-10-10</td>
+     <td scope="num">308</td>
+     <td scope="num">0</td>
+     <td scope="num">480</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR1</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13702124234</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>IMPORTACION Y COMERCIALIZACION DE ALIM Y BEB.</small></td>
+     <td scope="obs"></td>
+     <td scope="num" data-align="right"><span id="da">
+      256      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">56</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">MOAU0758534</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-10-02</td>
+     <td scope="strd">2017-10-03</td>
+     <td scope="num">292</td>
+     <td scope="num">0</td>
+     <td scope="num">454</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU13702118360</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>SUPLINOR REPRESENTACIONES, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      263      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">57</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">0007</td>
+     <td scope="strn">TEMU3751612</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-08-18</td>
+     <td scope="strd">2017-09-30</td>
+     <td scope="strd">2017-10-03</td>
+     <td scope="num">279</td>
+     <td scope="num">0</td>
+     <td scope="num">455</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU11018933337</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>SERVICIOS DEL FRIO FRIGO,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      263      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      309      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">58</td>
+     <td scope="strn">COSCO</td>
+     <td scope="strn">BUQUE C</td>
+     <td scope="strd">054</td>
+     <td scope="strn">MOFU0653284</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-01-10</td>
+     <td scope="strd">2017-02-07</td>
+     <td scope="strd">2017-08-28</td>
+     <td scope="num">0</td>
+     <td scope="num">0</td>
+     <td scope="num">220</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR1</span></td>
+     <td scope="num">0</td>
+     <td scope="strn"></td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>IMI DE VENEZUELA</small></td>
+     <td scope="obs">                 </td>
+     <td scope="num" data-align="right"><span id="da">
+      299      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      529      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">59</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">053</td>
+     <td scope="strn">TGHU0651822</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-01-26</td>
+     <td scope="strd">2017-02-22</td>
+     <td scope="strd">2017-08-28</td>
+     <td scope="num">0</td>
+     <td scope="num">0</td>
+     <td scope="num">230</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+     <td scope="num">0</td>
+     <td scope="strn"></td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>TOTAL CARGO INTERNATIONAL, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS EN GENERAL, HUECO DE 30CMT APROX PANEL4 LADO IZQUIERDO</td>
+     <td scope="num" data-align="right"><span id="da">
+      299      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      513      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">60</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE B</td>
+     <td scope="strd">00070</td>
+     <td scope="strn">MOAU0501037</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-06-20</td>
+     <td scope="strd">2017-07-10</td>
+     <td scope="strd">2017-08-28</td>
+     <td scope="num">0</td>
+     <td scope="num">0</td>
+     <td scope="num">205</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+     <td scope="num">0</td>
+     <td scope="strn"></td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>RYOPART, C.A.</small></td>
+     <td scope="obs">HUECO DE 30CMT  APROX, LATERAL DERECHO, ABOLLADURAS EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      299      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      368      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">61</td>
+     <td scope="strn">MAERSK SEALAND</td>
+     <td scope="strn">BUQUE F</td>
+     <td scope="strd">090</td>
+     <td scope="strn">MOTU5814956</td>
+     <td scope="strd">40' HC</td>
+     <td scope="strd">2017-02-08</td>
+     <td scope="strd">2017-02-25</td>
+     <td scope="strd">2017-02-26</td>
+     <td scope="num">759</td>
+     <td scope="num">0</td>
+     <td scope="num">1028</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006610434</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>LA MONSERRATINA, C.A.</small></td>
+     <td scope="obs">ABOLLADURAS FUERTES AMBOS LADOS</td>
+     <td scope="num" data-align="right"><span id="da">
+      482      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      500      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">62</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">087</td>
+     <td scope="strn">MOAU0719836</td>
+     <td scope="strd">20' DC</td>
+     <td scope="strd">2017-01-31</td>
+     <td scope="strd">2017-02-19</td>
+     <td scope="strd">2017-02-20</td>
+     <td scope="num">752</td>
+     <td scope="num">0</td>
+     <td scope="num">1019</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU28006452299</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>DISTRIBUIDORA NUBE AZUL,C.A.</small></td>
+     <td scope="obs">ABOLLADURAS Y OXIDO EN GENERAL</td>
+     <td scope="num" data-align="right"><span id="da">
+      488      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      508      </span></td>
+    </tr>
+        <tr>
+     <td scope="num">63</td>
+     <td scope="strn">CMA-CGM</td>
+     <td scope="strn">BUQUE A</td>
+     <td scope="strd">087</td>
+     <td scope="strn">MOFU5860983</td>
+     <td scope="strd">40' DC</td>
+     <td scope="strd">2017-01-31</td>
+     <td scope="strd">2017-02-05</td>
+     <td scope="strd">2017-02-06</td>
+     <td scope="num">722</td>
+     <td scope="num">0</td>
+     <td scope="num">992</td>
+     <td scope="strd">EMPTY</td>
+     <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+     <td scope="num">0</td>
+     <td scope="strn">MOLU21370230768</td>
+     <td scope="strn"><small>LAGORION</small></td>
+     <td scope="btxt"><small>PANATLANTIC DE VENEZUELA, C.A.</small></td>
+     <td scope="obs">ROTO PANEL NUMERO 5 LADO DERECHO DE 1,20X 1,20 CMTS      </td>
+     <td scope="num" data-align="right"><span id="da">
+      502      </span></td>
+     <td scope="num" data-align="right"><span id="dp">
+      508      </span></td>
+    </tr>
+       </table>
+  </div>
+ </div>
+</div>
+<script>
+$("nav.navbar-fixed-top").autoHidingNavbar();
+
+var $table = $('#table');
+$(function () {
+	$table.on('click-row.bs.table', function (e, row, $element) {
+		$('.success').removeClass('success');
+		$($element).addClass('success');
+	});
+});
+</script> 
+<small>Segundos: 0</small>
+</body>

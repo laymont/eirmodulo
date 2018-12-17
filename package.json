@@ -20,6 +20,15 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "vue": "^2.5.17"
+        "vue": "^2.5.17",
+        "moment": "^2.22.2",
+        "sweetalert": "^2.1.2"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome": "^1.1.8",
+        "hoek": "^5.0.4",
+        "npm-check": "^5.9.0",
+        "sweetalert2": "^7.29.1",
+        "vue-moment": "^4.0.0"
     }
 }

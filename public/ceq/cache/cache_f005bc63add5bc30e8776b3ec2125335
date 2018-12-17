@@ -1,0 +1,1305 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ayaguna, Control de Equipos">
+<meta name="author" content="Laymont Arratia">
+<title>Ayaguna 2.0.1</title>
+<!--Estilos-->
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/table/bootstrap-table.css">
+<link rel="stylesheet" href="../bootstrap/css/styleBootstrap.css">
+<link rel="stylesheet" href="../bootstrap/table/bootstrap-table.min.css">
+<!--Script-->
+<script src="../bootstrap/js/jquery.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/table/bootstrap-table.js"></script>
+<script src="../bootstrap/table/locale/bootstrap-table-es-SP.js"></script>
+<script src="../bootstrap/table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+<script src="../bootstrap/table/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="../bootstrap/table/extensions/natural-sorting/bootstrap-table-natural-sorting.min.js"></script>
+<script src="../bootstrap/table/extensions/export/bootstrap-table-export.js"></script>
+<script type="text/javascript" src="../bootstrap/table/tableExport.js"></script>
+<script src="../bootstrap/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+</head>
+<body>
+<div class="container-fluid">
+
+<div class="row">
+    <h3>&nbsp;</h3>
+  </div>
+  <!--Nav-->
+  <div class="row">
+    <div class="col-sm-12">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="#"><span class="text-primary">Ayaguna</span></a> </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../inicio.php">Regresar</a></li>
+            <li><a href="inventario_alertasExp.php" id="exportar">Exportar</a></li>
+            <p class="navbar-text navbar-right"> <small class="text-info">Intercontainers La Guaira C.A.</small></p>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div class="row">
+  <h3>Inventario +90 DP.</h3>
+  	<div class="col-sm-4">
+    <table class="table table-bordered table-hover table-striped table-condensed">
+      <tr>
+        <th scope="col">Tipo</th>
+        <th scope="col">Cantidad</th>
+      </tr>      <tr>
+        <td scope="strn">20' DC</td>
+        <td scope="float">26</td>
+      </tr>      <tr>
+        <td scope="strd">Total:</td>
+        <td scope="float">26</td>
+      </tr>
+    </table>
+    </div>
+    <div class="col-sm-4">
+    <table class="table table-bordered table-hover table-striped table-condensed">
+      <tr>
+        <th scope="col">Tipo</th>
+        <th scope="col">Cantidad</th>
+  </tr>      <tr>
+        <td scope="strn">40' FR</td>
+        <td scope="float">2</td>
+      </tr>      <tr>
+        <td scope="strn">40' HC</td>
+        <td scope="float">21</td>
+      </tr>      <tr>
+        <td scope="strn">45' HC</td>
+        <td scope="float">3</td>
+      </tr>      <tr>
+        <td scope="strd">Total:</td>
+        <td scope="float">26</td>
+      </tr>
+</table>
+    </div>
+  </div>
+  
+  <div class="row">
+  	<div class="col-xs-12">
+    <table id="table" class="table table-bordered table-condensed table-hover sortable bootstrap-table" 
+               data-toggle="table"
+               data-show-columns="true"
+               data-show-toggle="true"
+               data-show-export="true"
+               data-search="true"
+               data-pagination="true"
+               data-key-events="true"
+               data-sortable="true"
+               data-sort-name="#"
+               data-sort-order="asc"
+               data-show-pagination-switch="true"
+               data-pagination-v-align="both"
+               data-page-size="50"
+               data-pagination-first-text="Inicio"
+               data-pagination-pre-text="Previo"
+               data-pagination-next-text="Siguiente"
+               data-pagination-last-text="Ultimo"
+               data-maintain-selected="true"
+               data-toolbar="#toolbar"
+               data-search-align="left"
+               data-buttons-align="left"
+               data-toolbar-align="right"
+               data-locale="es-SP">
+  <caption>
+  Listado de Equipos: 52  </caption>
+  <thead>
+  <tr>
+    <th scope="col" data-field="#" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">#</th>
+    <th scope="col" data-field="linea" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Linea</th>
+    <th scope="col" data-field="buque" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Buque</th>
+    <th scope="col" data-field="viaje" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Viaje</th>
+    <th scope="col" data-field="contenedor" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Contenedor</th>
+    <th scope="col" data-field="tipo" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Tipo</th>
+    <th scope="col" data-field="fdb" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Fdb</th>
+    <th scope="col" data-field="fdm" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Fdm</th>
+    <th scope="col" data-field="fdr" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Fdr</th>
+    <th scope="col" data-field="fact" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Fact.</th>
+    <th scope="col" data-field="eir" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">EIR</th>
+    <th scope="col" data-field="est" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Est.</th>
+    <th scope="col" data-field="cond" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Cond.</th>
+    <th scope="col" data-field="pre" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Pre.</th>
+    <th scope="col" data-field="b/l" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">B/L</th>
+    <th scope="col" data-field="patio" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Patio</th>
+    <th scope="col" data-field="consig" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Consig.</th>
+    <th scope="col" data-field="obs" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">Obs.</th>
+    <th scope="col" data-field="da" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">DA</th>
+    <th scope="col" data-field="dp" data-sortable="true" data-searchable="true" data-sorter="alphanum" class="header">DP</th>
+  </tr>
+  </thead>
+    <tr>
+    <td scope="num">1</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">149/SB</td>
+    <td scope="strn">KOSU2200500</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-01-28</td>
+    <td scope="strd">2017-02-09</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="num">576</td>
+    <td scope="num">75786</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42446</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>TRANSPORTE DE CARGA VENEZOLANA,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">134</span></td>
+    <td scope="num" data-align="right"><span id="dp">151</span></td>
+  </tr>
+    <tr>
+    <td scope="num">2</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">BF IPANEMA</td>
+    <td scope="strd">153/SB</td>
+    <td scope="strn">TEXU9538969</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-04</td>
+    <td scope="strd">2017-02-08</td>
+    <td scope="strd">2017-02-09</td>
+    <td scope="num">0</td>
+    <td scope="num">75763</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42510</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSOLIDADOS UNIVERSALES JJTR,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL, PUERTA DERECHA 1 BARRA DOBLADA 1 GUIA DESPRENDIDA Y 1 PORTA PRECIENTO DOBLADO "><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">139</span></td>
+    <td scope="num" data-align="right"><span id="dp">144</span></td>
+  </tr>
+    <tr>
+    <td scope="num">3</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">BF IPANEMA</td>
+    <td scope="strd">153/SB</td>
+    <td scope="strn">KOSU2203068</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-04</td>
+    <td scope="strd">2017-02-09</td>
+    <td scope="strd">2017-02-10</td>
+    <td scope="num">564</td>
+    <td scope="num">75769</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42505</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CORPORACION DELCOP, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURAS EN GENERAL, PISO: PLATINA INFERIOR DOBLADA Y UNA SECCION LEVANTADA Y ROTA."><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">138</span></td>
+    <td scope="num" data-align="right"><span id="dp">144</span></td>
+  </tr>
+    <tr>
+    <td scope="num">4</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">BF IPANEMA</td>
+    <td scope="strd">153/SB</td>
+    <td scope="strn">TRIU9045499</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-04</td>
+    <td scope="strd">2017-02-09</td>
+    <td scope="strd">2017-02-10</td>
+    <td scope="num">554</td>
+    <td scope="num">75773</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42467</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>TOTAL CARGO INTERNATIONAL, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURAS EN GENERAL PTA IZQ: HUECO DE 15 CMS POR GOMA DESPRENDIDA."><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">138</span></td>
+    <td scope="num" data-align="right"><span id="dp">144</span></td>
+  </tr>
+    <tr>
+    <td scope="num">5</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">BF IPANEMA</td>
+    <td scope="strd">153/SB</td>
+    <td scope="strn">TRXU4600883</td>
+    <td scope="strd">40' FR</td>
+    <td scope="strd">2017-02-04</td>
+    <td scope="strd">2017-02-13</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="num">577</td>
+    <td scope="num">75783</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42473</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>SERVICIOS TEGAMAR, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="SIN MATERIAL DE TRINCAJE"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">134</span></td>
+    <td scope="num" data-align="right"><span id="dp">144</span></td>
+  </tr>
+    <tr>
+    <td scope="num">6</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">BF IPANEMA</td>
+    <td scope="strd">153/SB</td>
+    <td scope="strn">TRXU4600728</td>
+    <td scope="strd">40' FR</td>
+    <td scope="strd">2017-02-04</td>
+    <td scope="strd">2017-02-13</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="num">577</td>
+    <td scope="num">75784</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42473</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>SERVICIOS TEGAMAR, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="SIN MATERIAL DE TRINCAJE"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">134</span></td>
+    <td scope="num" data-align="right"><span id="dp">144</span></td>
+  </tr>
+    <tr>
+    <td scope="num">7</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">BF IPANEMA</td>
+    <td scope="strd">153/SB</td>
+    <td scope="strn">KOSU4992495</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-04</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">580</td>
+    <td scope="num">75804</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42519</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSTRUCCIONES D&D 785, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL 2 SECCIONES DE PISO DESLAMINADA"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">144</span></td>
+  </tr>
+    <tr>
+    <td scope="num">8</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">BF IPANEMA</td>
+    <td scope="strd">153/SB</td>
+    <td scope="strn">KOSU4989700</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-04</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">580</td>
+    <td scope="num">75810</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42519</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSTRUCCIONES D&D 785, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL LAT IZQ P#5 PARTE INF CORTE DE 5 CTMS"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">144</span></td>
+  </tr>
+    <tr>
+    <td scope="num">9</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU2202170</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="num">0</td>
+    <td scope="num">75788</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42567</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AGENCIA SEAFREIGHT DE VENEZUELA,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">134</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">10</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">TSLU8917741</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="num">573</td>
+    <td scope="num">75790</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42436</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>LURIVIS SOLUCIONES Y LOGISTICA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">134</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">11</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">TSLU4002438</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="num">0</td>
+    <td scope="num">75792</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42565</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AGENCIA SEAFREIGHT DE VENEZUELA,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">134</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">12</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">BMOU4719756</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-13</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="num">0</td>
+    <td scope="num">75794</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42539</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>IMPORTADORA GONZALEZ</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">133</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">13</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU2202293</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="num">583</td>
+    <td scope="num">75795</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42574</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>GLOBAL IMPORT GROUP 2017, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">133</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">14</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">TTNU2013005</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="num">0</td>
+    <td scope="num">75796</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42559</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AGENCIA SEAFREIGHT DE VENEZUELA,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL 30 % DE OXIDO"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">133</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">15</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">DCDU2190168</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-14</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="num">584</td>
+    <td scope="num">75797</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42569</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AGENCIA SEAFREIGHT DE VENEZUELA,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">133</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">16</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">FCIU3126100</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="num">588</td>
+    <td scope="num">75798</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42534</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AMERICAN EMBASSY</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">133</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">17</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">TTNU2006011</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="num">585</td>
+    <td scope="num">75799</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42560</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AMERICAN EMBASSY</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">133</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">18</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4509545</td>
+    <td scope="strd">45' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-13</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">0</td>
+    <td scope="num">75800</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42572</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>IMPORTADORA GONZALEZ</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">19</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">FCIU3904450</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">0</td>
+    <td scope="num">75801</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42509</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSOLIDADOS UNIVERSALES JJTR,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">20</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4995771</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-13</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">0</td>
+    <td scope="num">75802</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42564</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>IMPORTADORA GONZALEZ</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">21</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">DCDU2185100</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">582</td>
+    <td scope="num">75803</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42554</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>TOTAL CARGO INTERNATIONAL, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">22</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4995112</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">0</td>
+    <td scope="num">75805</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42575</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSOLIDADOS UNIVERSALES JJTR,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">23</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU2203181</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">587</td>
+    <td scope="num">75806</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42536</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AMERICAN EMBASSY</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">24</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">HTSU4960220</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">586</td>
+    <td scope="num">75807</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42533</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AMERICAN EMBASSY</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">25</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">DCDU2187565</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-15</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">0</td>
+    <td scope="num">75808</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42576</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>UNIKERT DE VENEZUELA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">26</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4988406</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-13</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="num">0</td>
+    <td scope="num">75809</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42573</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>IMPORTADORA GONZALEZ</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERALABOLLADURA EN GENERAL PISO 1 SECCION DESLAMINADA"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">132</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">27</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">FSCU6781640</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="strd">2017-02-17</td>
+    <td scope="num">581</td>
+    <td scope="num">75811</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42571</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>ELV MULTIMODAL, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">131</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">28</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4987919</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="strd">2017-02-17</td>
+    <td scope="num">0</td>
+    <td scope="num">75812</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42525</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>REPRESENTACIONES MS, CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">131</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">29</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4994348</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="strd">2017-02-17</td>
+    <td scope="num">589</td>
+    <td scope="num">7814</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42577</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>OPERADORA DHO 22 MARACAY, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">131</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">30</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">TTNU9680838</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="strd">2017-02-17</td>
+    <td scope="num">589</td>
+    <td scope="num">75815</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42577</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>OPERADORA DHO 22 MARACAY, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">131</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">31</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4999458</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-16</td>
+    <td scope="strd">2017-02-17</td>
+    <td scope="num">589</td>
+    <td scope="num">75816</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42577</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>OPERADORA DHO 22 MARACAY, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">131</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">32</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4987591</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="num">600</td>
+    <td scope="num">75835</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#DC143C;'>DMG</span></td>
+    <td scope="num">752633</td>
+    <td scope="strn">PEVLAG42561</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AMERICAN EMBASSY</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN FGENERAL TECHO: P# 11 2 CORTE DE 10 CMTS"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">126</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">33</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">DCDU2186641</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="num">596</td>
+    <td scope="num">75839</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">749547</td>
+    <td scope="strn">PEVLAG42580</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>TROIL SERVICES, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL Y 30% DE OXIDO"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">126</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">34</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">LION</td>
+    <td scope="strd">40/SB</td>
+    <td scope="strn">KOSU4998662</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-11</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="strd">2017-02-23</td>
+    <td scope="num">0</td>
+    <td scope="num">75843</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+    <td scope="num">752712</td>
+    <td scope="strn">PEVLAG42532</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AMERICAN EMBASSY</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA LEVES"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">125</span></td>
+    <td scope="num" data-align="right"><span id="dp">137</span></td>
+  </tr>
+    <tr>
+    <td scope="num">35</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">TSLU2188880</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-20</td>
+    <td scope="strd">2017-02-20</td>
+    <td scope="num">593</td>
+    <td scope="num">75821</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42589</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AMERICAS FLOTA, V.CA.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">128</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">36</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU4510910</td>
+    <td scope="strd">45' HC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-20</td>
+    <td scope="strd">2017-02-20</td>
+    <td scope="num">594</td>
+    <td scope="num">75824</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num"></td>
+    <td scope="strn">PEVLAG42655</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSOLIDADOS TRANSKIVEN, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">128</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">37</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">DCDU2182923</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-20</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="num">591</td>
+    <td scope="num">75826</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752579</td>
+    <td scope="strn">PEVLAG42551</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>FAST DELIVERY LOGISTIC F.P.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">127</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">38</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">TSLU4002799</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-20</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="num">592</td>
+    <td scope="num">75827</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752581</td>
+    <td scope="strn">PEVLAG42595</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>LURIVIS SOLUCIONES Y LOGISTICA, CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">127</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">39</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU4510232</td>
+    <td scope="strd">45' HC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="num">594</td>
+    <td scope="num">75828</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+    <td scope="num">749534</td>
+    <td scope="strn">PEVLAG42654</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSOLIDADOS TRANSKIVEN, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA LEVES"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">127</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">40</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">TSLU4000184</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-20</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="num">0</td>
+    <td scope="num">75829</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752580</td>
+    <td scope="strn">PEVLAG42639</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AGENCIA SEAFREIGHT VENEZUELA,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">127</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">41</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">TSLU4002090</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="num">601</td>
+    <td scope="num">75831</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752648</td>
+    <td scope="strn">PEVLAG42648</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CREACIONES WATER 2016, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA LEVES, PUERTA DERECHA UN PORTA PRECINTO ROTO"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">126</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">42</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU2201342</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-20</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="num">0</td>
+    <td scope="num">75832</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752598</td>
+    <td scope="strn">PEVLAG42634</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>IMPORTADORA GONZALEZ 2012, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">126</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">43</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU2203350</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="num">620</td>
+    <td scope="num">75833</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752672</td>
+    <td scope="strn">PEVLAG42632</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CORPORACION V RAGA, CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA LEVES"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">126</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">44</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">TSLU4000203</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="num">0</td>
+    <td scope="num">75834</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752640</td>
+    <td scope="strn">PEVLAG42597</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AGENCIA SEAFREIGHT VENEZUELA,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">126</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">45</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU4993681</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="num">0</td>
+    <td scope="num">75837</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">758690</td>
+    <td scope="strn">PEVLAG42603</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>AGENCIA SEAFREIGHT VENEZUELA,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">126</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">46</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU4988920</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="num">623</td>
+    <td scope="num">75838</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">749556</td>
+    <td scope="strn">PEVLAG42650</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>TRANSMOR INTERNACIONAL, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">126</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">47</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU2203290</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="strd">2017-02-23</td>
+    <td scope="num">602</td>
+    <td scope="num">75840</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">753578</td>
+    <td scope="strn">PEVLAG42618</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>UNIKERT DE VENEZUELA, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="LADO DERECHP IZQUIERDO P# 5 ABOLL HACIA DENTRO DE 10  C/U"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">125</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">48</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">TSLU4002377</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="strd">2017-02-23</td>
+    <td scope="num">624</td>
+    <td scope="num">75841</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752767</td>
+    <td scope="strn">PEVLAG42620</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>KLYO IMPORT, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">125</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">49</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">HTSU4983870</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="strd">2017-02-23</td>
+    <td scope="num">0</td>
+    <td scope="num">75842</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752753</td>
+    <td scope="strn">PEVLAG42581</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSOLIDADOS UNIVERSALES JJTR,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">125</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">50</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU2206180</td>
+    <td scope="strd">20' DC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-22</td>
+    <td scope="strd">2017-02-23</td>
+    <td scope="num">0</td>
+    <td scope="num">75845</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR2</span></td>
+    <td scope="num">752752</td>
+    <td scope="strn">PEVLAG42651</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>CONSOLIDADOS UNIVERSALES JJTR,CA</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURAS LEVES"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">125</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">51</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">HTSU4980248</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-23</td>
+    <td scope="num">0</td>
+    <td scope="num">75846</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752641</td>
+    <td scope="strn">PEVLAG42637</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>IMPORTADORA GONZALEZ 2012, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">125</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+    <tr>
+    <td scope="num">52</td>
+    <td scope="strn">KING OCEAN</td>
+    <td scope="strn">MELBOURNE STRAIT</td>
+    <td scope="strd">150/SB</td>
+    <td scope="strn">KOSU4990105</td>
+    <td scope="strd">40' HC</td>
+    <td scope="strd">2017-02-18</td>
+    <td scope="strd">2017-02-21</td>
+    <td scope="strd">2017-02-23</td>
+    <td scope="num">0</td>
+    <td scope="num">75847</td>
+    <td scope="strd">EMPTY</td>
+    <td scope="strd"><span style='color:#008B00;'>OPR3</span></td>
+    <td scope="num">752638</td>
+    <td scope="strn">PEVLAG42649</td>
+    <td scope="strn"><small>LAGINTERC</small></td>
+    <td scope="strn"><small>IMPORTADORA GONZALEZ 2012, C.A.</small></td>
+    <td><a href="#" data-toggle="tooltip" data-placement="auto" title="ABOLLADURA EN GENERAL"><small>Ver</small></a></td>
+    <td scope="num" data-align="right"><span id="da">125</span></td>
+    <td scope="num" data-align="right"><span id="dp">130</span></td>
+  </tr>
+  </table>
+    </div>
+  </div>
+</div>
+<script>
+$("nav.navbar-fixed-top").autoHidingNavbar();
+
+var $table = $('#table');
+$(function () {
+	$table.on('click-row.bs.table', function (e, row, $element) {
+		$('.success').removeClass('success');
+		$($element).addClass('success');
+	});
+});
+</script>
+<small>Segundos: 0</small>

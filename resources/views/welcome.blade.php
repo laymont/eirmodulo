@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Laravel</title>
+  <title>5X Plus</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -81,10 +81,9 @@
 
     <div class="content">
       <div class="title m-b-md">
-        EIR AYAGUNA <small>v.3.0</small>
+        5X Plus
       </div>
-      <p>Nuevo EIR</p>
-      <p><a href="{{ url('lineas') }}" title="">Lineas</a></p>
+      <p><a href="{{ url('inventarios') }}" title="">Inventario</a></p>
     </div>
   </div>
 </body>

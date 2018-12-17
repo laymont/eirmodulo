@@ -1,0 +1,443 @@
+<?php
+session_start();
+session_name($_SESSION['variables']['usuario']);
+require_once('../config.php');
+require_once('../clases/class_Conexion.php');
+require_once('../funciones/funciones.php');
+#Seguridad
+$seguridad = new Seguridad();
+$seguridad->ValidarUsuario();
+
+$lineas = new DBMySQL();
+$lineas->Datosconexion(UDB,PDB,USERDB);
+$sql = "SELECT id, nombre FROM lineas WHERE activo = 0;";
+$lineas->Consulta($sql);
+
+$patios = new DBMySQL();
+$patios->Datosconexion(UDB,PDB,USERDB);
+$patios->Consulta("SELECT id, codigo FROM ubicacion ORDER BY codigo ASC;");
+
+
+
+?>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ayaguna, Control de Equipos">
+  <meta name="author" content="Laymont Arratia">
+  <title><?php echo VERSION; ?></title>
+  <!--Script-->
+  <script src="../js/jquery-1.11.3.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="../bootstrap/validators/validator.min.js"></script>
+  <script src="../bootstrap/dialog/js/bootstrap-dialog.min.js"></script>
+  <script src="../js/moment.js"></script>
+  <script src="../bootstrap/js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+  <script src="../js/jquery-ui.min.js"></script>
+  <script src="../js/funciones.js"></script>
+  <script>
+    <!-- Linea, Buque y Viaje -->
+    $(document).ready(function(){
+     $("#linea").change(function () {
+      $("#linea option:selected").each(function () {
+       elegido=$(this).val();
+       $.post("buques.php", { elegido: elegido }, function(data){
+        $("#buque").html(data);
+        $("#viaje").html("");
+      });
+     });
+    });
+
+     // Este puede ponerse en comentario si no se dispone de un 3er combo:
+     $("#buque").change(function () {
+      $("#buque option:selected").each(function () {
+       elegido=$(this).val();
+       $.post("viajes.php", { elegido: elegido }, function(data){
+         $("#viaje").html(data);
+       });
+     });
+    })
+
+   });
+
+    $(function(){
+     <!--Contenedor-->
+     <!--Siglas contenedor en mayusculas-->
+     $('#equipo').css('text-transform','uppercase');
+     <!---->
+     $('#equipo').blur(function(){
+      $digito = ISO6346Check($('#equipo').val());
+      if($digito[0] == false){
+			// Dialogo
+			BootstrapDialog.show({
+				type: 'type-warning',
+				size: 'size-small',
+				title: 'Digito de Validador',
+				message: 'Digito de Validador errado!<br> El digito correcto es ' + $digito[1] + '<br>Se recomienda verificar el numero del Contenedor'
+			});
+		}
+	})
+   });
+
+    <!--Autocompletar-->
+    $(function(){ 
+      $("#strcon, #consignatario").autocomplete({
+       minLength : 4,
+       source: "../autocompletar/autocompletar_consignatarios2.php",
+       select: function( event, ui ) {  
+         $("#strcon").val( ui.item.label );
+         $("#consignatario").val( ui.item.value );
+         return false;
+       }
+     });
+    });
+    <!--Autocompletar-->
+    <!--Validar fechas-->
+    $(function(){
+     <!--Fecha FDM mayor que ETA Viaje-->
+     $('#fdm').blur(function(){
+      var $buque = $('#buque').val();
+      var $viaje = $('#viaje').val();
+      if($buque != null || $viaje != null){
+       $.post("../json/viajesJson_inVacio.php", { buque:$buque, viaje:$viaje }, function(data){
+        var $eta = moment(data).format("YYYY-MM-DD");
+        var $fdm = moment($('#fdm').val()).format("YYYY-MM-DD");
+        var $resultado = moment($fdm).isBefore(moment($eta));
+        if($resultado == true){
+					//alert($resultado);
+					BootstrapDialog.show({
+						type: 'type-danger',
+						size: 'size-small',
+						title: 'Despacho/Muelle',
+						message: 'La fecha de despacho del muelle no puede ser menor al atraque del barco(Fecha/Viaje).'
+					});
+					$('#fdm').val(null);
+					$('#fdm').focus();
+				}
+			});
+     }
+   })
+   });
+    $(function(){
+     <!--fecha fdm no puede ser mayor que frd-->
+     $('#fdm').blur(function(){
+      var $recepcion = $('#frd').val();
+      var $despacho = $('#fdm').val();
+      if($recepcion != null){
+       var $resultado = moment($despacho).isAfter(moment($recepcion));
+       if($resultado == true){
+        BootstrapDialog.show({
+         type: 'type-danger',
+         size: 'size-small',
+         title: 'Despacho/Muelle',
+         message: 'La fecha de despacho del muelle no puede ser mayor que la fecha de recepcion(FRD).'
+       });
+        $('#fdm').val(null);
+        $('#fdm').focus();
+      }
+			//alert($resultado);
+		}
+	});
+     
+     $('#frd').change(function(){
+      var $recepcion = $('#frd').val();
+      var $despacho = $('#fdm').val();
+      if($recepcion != null || $despacho != null){
+       var $resultado = moment($recepcion).isBefore(moment($despacho));
+       if($resultado == true){
+        BootstrapDialog.show({
+         type: 'type-danger',
+         size: 'size-small',
+         title: 'Despacho/Muelle',
+         message: 'La fecha de despacho del muelle no puede ser mayor que la fecha de recepcion(FRD).'
+       });
+        $('#frd').val(null);
+        $('#frd').focus();
+      }
+    }
+  });
+   });
+ </script>
+ <!--Css-->
+ <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-responsive.min.css">
+ <link rel="stylesheet" type="text/css" href="../bootstrap/dialog/css/bootstrap-dialog.min.css">
+ <link rel="stylesheet" type="text/css" href="../js/jquery-ui.min.css">
+ <!--Estilo para carga lenta-->
+ <style>
+  html { position: relative; }
+  #slow-notice
+  {
+   width: 300px;
+   position: absolute;
+   top: 0;
+   left: 50%;
+   margin-left: -160px;
+   background-color: #F0DE7D;
+   text-align: center;
+   z-index: 100;
+   padding: 10px;
+   font-family: sans-serif;
+   font-size: 12px;
+ }
+
+ #slow-notice a, #slow-notice .dismiss
+ {
+   color: #000;
+   text-decoration: underline;
+   cursor: pointer;
+ }
+
+ #slow-notice .dismiss-container
+ {
+   text-align: right;
+   padding-top: 10px;
+   font-size: 10px;
+ }
+</style>
+<!--Detectar carga lenta-->
+<script>
+
+  function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime()+(exdays*24*60*60*1000));
+    var expires = "expires="+d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";path=/;" + expires;
+  }
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+    }
+    return "";
+  } 
+
+  if (getCookie('dismissed') != '1') {
+    var html_node = document.getElementsByTagName('html')[0];
+    var div = document.createElement('div');
+    div.setAttribute('id', 'slow-notice');
+
+    var slowLoad = window.setTimeout( function() {
+      var t1 = document.createTextNode("The website is taking a long time to load.");
+      var br = document.createElement('br');
+      var t2 = document.createTextNode("You can switch to the ");
+      var a = document.createElement('a');
+      a.setAttribute('href', 'http://light-version.mysite.com');
+      a.innerHTML = 'Light Weight Site';
+
+      var dismiss = document.createElement('span');
+      dismiss.innerHTML = '[x] dismiss';
+      dismiss.setAttribute('class', 'dismiss');
+      dismiss.onclick = function() {
+        setCookie('dismissed', '1', 1);
+        html_node.removeChild(div);
+      }
+
+      var dismiss_container = document.createElement('div');
+      dismiss_container.appendChild(dismiss);
+      dismiss_container.setAttribute('class', 'dismiss-container');
+
+      div.appendChild(t1);
+      div.appendChild(br);
+      div.appendChild(t2);
+      div.appendChild(a);
+      div.appendChild(dismiss_container);
+
+      html_node.appendChild(div);
+
+
+    }, 1000 );
+
+    window.addEventListener( 'load', function() {
+      try {
+        window.clearTimeout( slowLoad );
+        html_node.removeChild(div);
+      } catch (e){
+                // that's okay.
+              }
+
+            });
+  }
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+            <a class="navbar-brand" href="#"><span class="text-primary">Ayaguna</span></a> </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="../inicio.php">Regresar</a></li>
+                <!--<li><a href="inventarioExp.php" id="exportar">Exportar</a></li>-->
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>&nbsp; </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-7">
+          <form action="ingresos_vacios2.php" method="post" name="invacio" id="invacio" role="form" data-toggle="validator">
+            <fieldset>
+              <legend>Ingreso | Vacios</legend>
+              <div id="1" class="row">
+               <div class="form-group has-feedback col-sm-4">
+                <input name="eir" type="text" required class="form-control" id="eir" placeholder="EIR" pattern="^([0-9]{4,6})$" autocomplete="off" size="10" data-error="El numero de EIR tiene al menos 4 digitos">
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group has-feedback col-sm-4">
+                <input class="form-control" name="factura" type="text" id="factura" placeholder="Factura" autocomplete="off" size="10">
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group has-feedback col-sm-4">
+              <input class="form-control" name="pase" type="text" id="pase" placeholder="Pase" autocomplete="off">
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            
+
+            <div id="2" class="row">
+             <div class="form-group has-feedback col-sm-4">
+              <select class="form-control has-feedback" name="linea" id="linea" required data-error="Seleccione la Linea">
+                <option value="">Seleccion/Linea</option>
+                <?php do { ?>
+                <option value="<?php echo $lineas->Filas['id']; ?>"><?php echo $lineas->Filas['nombre']; ?></option>
+                <?php } while ($lineas->Filas = mysqli_fetch_assoc($lineas->Consulta)); ?>
+              </select>
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group has-feedback col-sm-4">
+              <select class="form-control" name="buque" id="buque" required data-error="Seleccione el Buque">
+                <option value="">Seleccion/Buque</option>
+              </select>
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group has-feedback col-sm-4">
+              <select class="form-control" name="viaje" id="viaje" required data-error="Seleccione el Viaje">
+                <option value="">Seleccion/Viaje</option>
+              </select>
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+
+          <div id="3" class="row">
+            <div class="form-group has-feedback col-sm-4">
+              <input name="equipo" type="text" class="form-control" id="equipo" placeholder="Contenedor" autocomplete="off" pattern="^([a-zA-Z]{3})([u|U]{1})([0-9]{7})$" data-remote="contenedor.php?contenedor=equipo" data-remote-error="Contenedor en inventario" required data-error="El numero de Contenedor esta compuesto por 3 letras, 1 U y 7 Numeros">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group has-feedback col-sm-4">
+              <?php MenuTipos(); ?>
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group has-feedback col-sm-4">
+              <select class="form-control" name="condicion" id="condicion" required data-error="Seleccione la Condicion/Contenedor">
+                <option value="" >Condición</option>
+                <option value="0">DMG</option>
+                <option value="1">OPR1</option>
+                <option value="2">OPR2</option>
+                <option value="3">OPR3</option>
+              </select>
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div id="4" class="row">
+            <div class="form-group has-feedback col-sm-4">
+              <input class="form-control" name="fdm" type="date" id="fdm" placeholder="Fecha Despacho(EIR)" max="<?php echo AHORAC; ?>" data-error="Indique la fecha de Despacho(EIR)" data-max-error="La fecha no puede ser mayor a la actual" required>
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group has-feedback col-sm-4">
+              <input class="form-control" name="frd" type="date" id="frd" placeholder="Fecha Recepción" value="<?php echo AHORAC; ?>" max="<?php echo AHORAC; ?>" data-error="Indique la Fecha de Recepcion"  data-max-error="La fecha no puede ser mayor a la actual"  required>
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group has-feedback col-sm-4">
+              <select class="form-control" name="ubicacion" id="ubicacion" required data-error="Indique la Ubicacion/Contenedor">
+                <option value="">Ubicación</option>
+                <?php do{ ?>
+                <option value="<?php echo $patios->Filas['id']; ?>"><?php echo $patios->Filas['codigo']; ?></option>
+                <?php }while ($patios->Filas = mysqli_fetch_assoc($patios->Consulta)); ?>
+              </select>
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div id="5" class="row">
+            <div class="form-group has-feedback col-sm-8">
+              <input name="strcon" type="text" class="form-control" id="strcon" placeholder="Nombre Consignatario" autocomplete="off" size="62" required data-error="Indique el Consignatario">
+              <input name="consignatario" type="hidden" id="consignatario" value="-1">
+              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group has-feedback col-sm-4">
+              <input class="form-control" name="bl" type="text" id="bl" placeholder="B/L">
+            </div>
+          </div>
+          
+
+          <div id="6" class="row">
+          	<div class="form-group has-feedback col-sm-8">
+              <textarea class="form-control" name="observacion" cols="40" id="observacion" placeholder="Observaciones"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit" name="submit" id="submit" value="Registrar" title="Registrar">Guardar</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+
+
+  $(document).ready(function() {
+  //Ocultar MenuBar
+  $("nav.navbar-fixed-top").autoHidingNavbar();
+  //Tooltip
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+  $(function(){
+   $('#formViajesIn').validator({
+    feedback: {
+     success: 'glyphicon glyphicon-ok',
+     error: 'glyphicon glyphicon-remove'
+   }
+   var vara.appendTo('selector')
+ }) 
+ });
+
+</script>
+</body>
+<?php $cache->cerrar(); ?>
+</html>
+<?php
+$lineas->Liberar();
+
+$patios->Liberar();
+
+
+?>

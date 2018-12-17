@@ -25,9 +25,20 @@ class Buque extends Model
    *
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
    */
-  public function linea()
+  public function lineas()
   {
     // belongsTo(RelatedModel, foreignKey = linea_id, keyOnRelatedModel = id)
     return $this->belongsTo(Linea::class,'linea');
+  }
+
+  /**
+   * Buque belongs to Viajes.
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
+  public function viajes()
+  {
+    // belongsTo(RelatedModel, foreignKey = viajes_id, keyOnRelatedModel = id)
+    return $this->belongsTo(Viaje::class,'id','buque');
   }
 }

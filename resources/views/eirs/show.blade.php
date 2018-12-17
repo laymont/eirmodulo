@@ -14,9 +14,13 @@
     </div>
   </div>
 
+  <div class="row mb-2 d-print-none">
+    <a class="btn btn-success" href="{{ url('inventarios') }}" title="Regresar">Listo</a>
+  </div>
+
   <div class="row">
     <div class="col-md card">
-      <p>Fecha/Hora: <br> {{ $inventario->frd }}</p>
+      <p>Fecha/Hora: <br> {{ $eir->first()->fecha }}</p>
     </div>
     <div class="col-md card">
       <p>Equipo: <br> {{ $inventario->contenedor }}</p>
@@ -28,7 +32,7 @@
       <p>Transaccion: <br></p>
     </div>
     <div class="col-md card">
-      <p>Movimiento: <br></p>
+      <p>Movimiento: <br> {{ $eir->first()->movimiento }}</p>
     </div>
     <div class="col-md card">
       <div class="row">
@@ -56,10 +60,10 @@
 
   <div class="row">
     <div class="col-md card">
-      <p>B/L N°</p>
+      <p>B/L N° <br> {{ $inventario->bl }}</p>
     </div>
     <div class="col-md card">
-      <p>Booking N°</p>
+      <p>Booking N° <br> {{ $inventario->booking }}</p>
     </div>
     <div class="col-md card">
       <p>Peso Bruto</p>
@@ -83,7 +87,11 @@
       <p>Precinto</p>
     </div>
     <div class="col-md card">
-      <p>Imo</p>
+      <p>Imo <br>
+        @if ($eir->first()->imo != 0)
+          {{ $eir->first()->imo }}
+        @endif
+      </p>
     </div>
   </div>
 
@@ -92,10 +100,10 @@
       <p>Linea: {{ $inventario->lineas->nombre }}</p>
     </div>
     <div class="col-md card">
-      <p>Buque: {{ $inventario->buques->nombre }}</p>
+      <p>Buque: {{ $inventario->buquesd->nombre }}</p>
     </div>
     <div class="col-md card">
-      <p>Viaje: {{ $inventario->viajes->viaje }}</p>
+      <p>Viaje: {{ $inventario->viajesd->viaje }}</p>
     </div>
     <div class="col-md card">
       <p>Arribo: {{ $inventario->viajes->eta }}</p>
@@ -216,21 +224,21 @@
         <caption>Datos del Transporte</caption>
         <thead>
           <tr>
-            <th>Datos del Transportista: </th>
+            <th>Datos del Transportista: <br> {{ $eir->first()->transporte->nombre }} &nbsp;&nbsp;&nbsp; Placa: {{ $eir->first()->placa }} </th>
             <th>Datos del Chequeador: </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Nombre del Chofer:</td>
+            <td>Nombre del Chofer: <br> {{ $eir->first()->chofer }}</td>
             <td>Nombre:</td>
           </tr>
           <tr>
-            <td>C.I.:</td>
+            <td>C.I.: <br> {{ $eir->first()->identificacion }}</td>
             <td>C.I.:</td>
           </tr>
           <tr>
-            <td>Firma</td>
+            <td>Firma <br> &nbsp;</td>
             <td colspan="2">Huella</td>
           </tr>
         </tbody>
@@ -239,4 +247,10 @@
   </div>
 
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+  window.print();
+</script>
 @endsection

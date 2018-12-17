@@ -1,0 +1,9 @@
+# Empty CSS file for your own CSS
+td[scope=strd] { text-align: left; }
+td[scope=strn] { text-align: center; }
+td[scope=float] { text-align: right; }
+td[scope=num] { text-align: right; }
+td[scope=monto] { text-align: right; }
+#infogral {
+	margin-top: 60px;
+}
