@@ -81,9 +81,8 @@
 
     <div class="content">
       <div class="title m-b-md">
-        5X Plus
+        <a href="/inicio" title="Inicio">5X Plus</a>
       </div>
-      <p><a href="{{ url('inventarios') }}" title="">Inventario</a></p>
     </div>
   </div>
 </body>
